@@ -17,5 +17,4 @@ class BaiduPage(Page):
     setting = PageElement(link_text='设置', describe='设置下拉框')
     search_setting = PageElement(css='./setpref', describe='搜索设置选项')
     saving_setting = PageElement(css='./prefpanelgo', describe='保存设置')
-
     search_result = PageElement(xpath='//*[@id="9"]/h3/a', describe='搜索结果')

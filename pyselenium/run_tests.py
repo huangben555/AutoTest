@@ -40,5 +40,4 @@ if __name__ == "__main__":
                  "--junit-xml=" + xml_report,
                  "--self-contained-html",
                  "--reruns", rerun,
-                 "-n", "3",
                  "--cmdopt", 'stg2'])
