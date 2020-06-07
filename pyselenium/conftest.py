@@ -9,8 +9,6 @@ driver_type = 'chrome'
 
 driver = None
 
-url = 'https://wwww.baidu.com'
-
 rerun = '0'
 
 cases_path = '.\\test_dir\\'
@@ -20,18 +18,12 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORT_DIR = BASE_DIR + "\\test_report\\"
 
 
-@pytest.fixture(scope='function')
-def base_url():
-    return url
-
-
 @pytest.fixture(scope='session', autouse=True)
 def browser():
     global driver
     if driver_type == 'chrome':
         driver = webdriver.Chrome()
         driver.set_window_size(2560, 1440)
-
     else:
         driver_type == 'firefox'
         driver = webdriver.firefox()
