@@ -9,8 +9,6 @@ driver_type = 'chrome'
 
 driver = None
 
-rerun = '0'
-
 cases_path = '.\\test_dir\\'
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))

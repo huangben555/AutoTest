@@ -10,3 +10,6 @@ class DDT:
         data_list = csv_data[column_list].values.tolist()
         print(data_list)
         return data_list
+
+if __name__=='__main__':
+    DDT.read_CSV(['parameterIn', 'parameterOut'])

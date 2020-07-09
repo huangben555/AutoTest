@@ -13,31 +13,34 @@ def init_env(now_time):
     os.mkdir(REPORT_DIR + now_time + "\\image")
 
 
-# @click.command()
-# @click.option('-m', default=None, help='输入运行模式：run 或 debug.')
-# def run(m):
-#     if m is None or m == "run":
-#         now_time = time.strftime("%Y_%m_%d_%H_%M_%S")
-#         init_env(now_time)
-#         html_report = os.path.join(REPORT_DIR, now_time, "report.html")
-#         xml_report = os.path.join(REPORT_DIR, now_time, "junit-xml.xml")
-#         pytest.main(["-s", "-v", cases_path,
-#                     "--html=" + html_report,
-#                     "--junit-xml=" + xml_report,
-#                     "--self-contained-html",
-#                     "--reruns", rerun])
-#     elif m == "debug":
-#         pytest.main(["-v", "-s", cases_path])
-
-
-if __name__ == "__main__":
+def run():
     now_time = time.strftime("%Y_%m_%d_%H_%M_%S")
     init_env(now_time)
     html_report = os.path.join(REPORT_DIR, now_time, "report.html")
     xml_report = os.path.join(REPORT_DIR, now_time, "junit-xml.xml")
-    pytest.main(["-s", "-v", cases_path,
-                 "--html=" + html_report,
-                 "--junit-xml=" + xml_report,
-                 "--self-contained-html",
-                 "--reruns", rerun,
-                 "--cmdopt", 'stg2'])
+    option_list = ["-s", "-v", cases_path,
+                   "--html=" + html_report,
+                   "--junit-xml=" + xml_report,
+                   "--self-contained-html",
+                   "--cmdopt", 'stg2']
+    if 'rerunNum' in os.environ:
+        option_list.extend(["--reruns", os.environ['rerunNum']])
+    else:
+        pass
+    if 'testCases' in os.environ:
+        test_cases_dict = {'测试1': 'test_baidu_search_case1', '测试2': 'test_baidu_search_case2'}
+        test_cases_list = os.environ['testCases'].replace(' ', '').split(',')
+        test_cases = ''
+        for test_case_name in test_cases_list:
+            test_case = test_cases_dict[test_case_name]
+            test_cases = test_cases + test_case + ', '
+            print(test_cases)
+            option_list.extend(["-k", os.environ['testCases']])
+        print('os.environ is:', os.environ['testCases'])
+    else:
+        pass
+    pytest.main(option_list)
+
+
+if __name__ == "__main__":
+    run()

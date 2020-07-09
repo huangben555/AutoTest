@@ -1,4 +1,5 @@
 import json
+import os
 # def pop(list):
 #     length = len(list)
 #     for i in range(length):
@@ -115,3 +116,12 @@ import json
 #     sll.insert(3, 8)
 #     sll.append(0)
 #     sll.travel()
+
+print(os.environ.values())
+test_cases_dict = {'测试1': 'test_baidu_search_case1', '测试2': 'test_baidu_search_case2'}
+test_cases_list = '测试1,测试2'.split(',')
+test_cases = ''
+for test_case_name in test_cases_list:
+    test_case = test_cases_dict[test_case_name]
+    test_cases = test_cases + test_case + ', '
+    print(test_cases)

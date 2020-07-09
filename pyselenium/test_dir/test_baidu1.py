@@ -7,7 +7,6 @@ from pyselenium.utils.ddt_readCSV import DDT
 
 url = 'https://wwww.baidu.com'
 
-
 @pytest.mark.incremental
 class TestSearch:
 
@@ -20,19 +19,20 @@ class TestSearch:
         page.get(url)
         page.search_input = search_key1
         page.search_button.click()
-        sleep(2)
+        sleep(1)
         assert browser.title == search_key2
-        sleep(5)
+        sleep(1)
 
-    # @pytest.mark.run(order=1)
-    # def test_baidu_search_case2(self, browser):
-    #     page = BaiduPage(browser)
-    #     page.get(url)
-    #     page.search_input = 'selenium'
-    #     page.search_button.click()
-    #     sleep(2)
-    #     assert browser.title == 'selenium_百度搜索'
-    #
+    @pytest.mark.run(order=1)
+    def test_baidu_search_case2(self, browser):
+        """备注"""
+        page = BaiduPage(browser)
+        page.get(url)
+        page.search_input = 'pytest'
+        page.search_button.click()
+        sleep(1)
+        assert browser.title == 'pytest_百度搜索'
+
     # @pytest.mark.run(order=2)
     # def test_baidu_search_case3(self, browser, base_url):
     #     page = BaiduPage(browser)
