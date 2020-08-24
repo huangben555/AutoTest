@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="WongBen" name="pytest" skipped="0" tests="1" time="7.687" timestamp="2020-08-21T22:51:52.872436"><testcase classname="test_dir.test_baidu1.TestSearch" file="test_dir\test_baidu1.py" line="47" name="test_fix_1" time="7.287"><failure message="KeyError: &lt;pyselenium.test_dir.test_baidu1.TestSearch object at 0x0000013D723472E8&gt;">cmdopt = &lt;pyselenium.test_dir.test_baidu1.TestSearch object at 0x0000013D723472E8&gt;
+
+    def test_fix_1(cmdopt):
+        cfg = configparser.ConfigParser()
+        cfg.read(&apos;config.ini&apos;)
+        print(&apos;cmdopt值为：&apos;, cmdopt)
+&gt;       env = cfg[cmdopt]
+
+test_dir\test_baidu1.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;configparser.ConfigParser object at 0x0000013D723639E8&gt;, key = &lt;pyselenium.test_dir.test_baidu1.TestSearch object at 0x0000013D723472E8&gt;
+
+    def __getitem__(self, key):
+        if key != self.default_section and not self.has_section(key):
+&gt;           raise KeyError(key)
+E           KeyError: &lt;pyselenium.test_dir.test_baidu1.TestSearch object at 0x0000013D723472E8&gt;
+
+C:\ProgramData\Anaconda3\envs\AutoTest\lib\configparser.py:959: KeyError</failure></testcase></testsuite></testsuites>

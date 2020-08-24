@@ -1,0 +1,3 @@
+﻿jenkins_case_name,pytest_case_name
+测试1,test_dir/test_baidu1.py::TestSearch::test_baidu_search_case1
+测试2,test_dir/test_baidu1.py::TestSearch::test_baidu_search_case2

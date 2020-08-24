@@ -1,6 +1,5 @@
 import pytest
 import os
-import configparser
 from selenium import webdriver
 from py._xmlgen import html
 
@@ -123,14 +122,6 @@ def pytest_addoption(parser):
 @pytest.fixture(scope='session')
 def cmdopt(pytestconfig):
     return pytestconfig.getoption("--cmdopt")
-
-
-def fix_1(cmdopt):
-    cfg = configparser.ConfigParser()
-    cfg.read('config.ini')
-    print('cmdopt值为：', cmdopt)
-    env = cfg[cmdopt]
-    print(env['oracle'])
 
 
 def pytest_runtest_makereport(item, call):
