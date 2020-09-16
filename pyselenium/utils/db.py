@@ -1,11 +1,12 @@
 import configparser
 import pymysql.cursors
+import pandas as pd
 
 
 class db:
 
     @staticmethod
-    def db_connect(cmdopt):
+    def db_connect(cmdopt='stg1'):
         cfg = configparser.ConfigParser()
         cfg.read('C:\\PycharmProjects\\AutoTest\\pyselenium\\config.ini', encoding='utf-8')
         print('cmdopt值为：', cmdopt)
@@ -28,8 +29,9 @@ class db:
     @staticmethod
     def db_insert():
         connect, cursor = db.db_connect()
-        sql = "INSERT INTO `sign_event` VALUES (3, '华为', 200, 1, '上海佘山', '2020-08-06 18:07:35.000000', '2020-03-01 16:10:34')"
-        cursor.execute(sql)
+        sql = "SELECT * FROM `sign_event`"
+        # sql = "INSERT INTO `sign_event` VALUES (3, '华为', 200, 1, '上海佘山', '2020-08-06 18:07:35.000000', '2020-03-01 16:10:34')"
+        print(pd.read_sql(sql, connect))
         connect.commit()
         cursor.close()
         connect.close()

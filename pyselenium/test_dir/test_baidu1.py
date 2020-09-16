@@ -36,12 +36,12 @@ class TestSearch:
         page.search_input = 'pytest'
         page.search_button.click()
         sleep(1)
-        connect, cursor = db.db_connect(cmdopt)
-        sql = "INSERT INTO `sign_event` VALUES (3, '华为', 200, 1, '上海佘山', '2020-08-06 18:07:35.000000', '2020-03-01 16:10:34')"
-        cursor.execute(sql)
-        connect.commit()
-        cursor.close()
-        connect.close()
+        # connect, cursor = db.db_connect(cmdopt)
+        # sql = "INSERT INTO `sign_event` VALUES (3, '华为', 200, 1, '上海佘山', '2020-08-06 18:07:35.000000', '2020-03-01 16:10:34')"
+        # cursor.execute(sql)
+        # connect.commit()
+        # cursor.close()
+        # connect.close()
         assert browser.title == 'pytest_百度搜索'
     #
     # @pytest.mark.run(order=2)

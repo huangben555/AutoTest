@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="0" hostname="WongBen" name="pytest" skipped="0" tests="1" time="9.090" timestamp="2020-08-20T23:12:30.210032"><testcase classname="test_dir.test_baidu1.TestSearch" file="test_dir\test_baidu1.py" line="28" name="test_baidu_search_case2" time="8.979"></testcase></testsuite></testsuites>
